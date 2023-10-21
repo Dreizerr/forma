@@ -1,0 +1,89 @@
+body {
+  font-family: "Montserrat";
+  font-size: 17px;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: min(100%, 700px);
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form__error {
+  color: red;
+}
+
+.input-label {
+}
+
+.input-label__text {
+  margin-bottom: 10px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: 4;
+    position: absolute;
+  }
+  &:has(input:focus) {
+    &::before {
+      border: 2px solid #2684ff;
+    }
+  }
+}
+
+.req-star {
+  &::after {
+    content: "*";
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    color: red;
+  }
+}
+
+.input {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: inherit;
+}
+
+.submit-btn {
+  background-color: #2684ff;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 10px;
+}
