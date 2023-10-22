@@ -29,6 +29,10 @@ function App() {
       value: "Школа 57",
       label: "Школа 57",
     },
+    {
+      value: "Балтийский колледж управления",
+      label: "Балтийский колледж управления",
+    },
   ];
   const [submitError, setSubmitError] = useState("");
 
@@ -91,7 +95,7 @@ function App() {
         <label className="input-label">
           <div className="input-wrapper req-star">
             <input
-              placeholder="Введите класс"
+              placeholder="Введите класс или группу"
               className="input _req"
               value={grade}
               onChange={(e) => {
