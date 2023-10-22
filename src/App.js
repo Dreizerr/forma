@@ -81,6 +81,29 @@ function App() {
     <div className="container">
       <h1 className="heading">Заполните форму</h1>
       <form noValidate onSubmit={submit} className="form">
+        <Select
+          onChange={setInstitution}
+          className="req-star _req my-select-container"
+          classNamePrefix={"my-select"}
+          placeholder={"Выбрать учреждение..."}
+          options={schoolOptions}
+        />
+        <label className="input-label">
+          <div className="input-wrapper req-star">
+            <input
+              placeholder="Введите класс"
+              className="input _req"
+              value={grade}
+              onChange={(e) => {
+                setGrade(e.target.value);
+              }}
+              onFocus={() => {
+                setSubmitError("");
+              }}
+              type="text"
+            />
+          </div>
+        </label>
         <label className="input-label">
           <div className="input-wrapper req-star">
             <input
@@ -100,11 +123,11 @@ function App() {
         <label className="input-label">
           <div className="input-wrapper req-star">
             <input
-              placeholder="Введите класс"
+              placeholder="Введите почту"
               className="input _req"
-              value={grade}
+              value={email}
               onChange={(e) => {
-                setGrade(e.target.value);
+                setEmail(e.target.value);
               }}
               onFocus={() => {
                 setSubmitError("");
@@ -131,22 +154,6 @@ function App() {
           </div>
         </label>
         <label className="input-label">
-          <div className="input-wrapper req-star">
-            <input
-              placeholder="Введите почту"
-              className="input _req"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              onFocus={() => {
-                setSubmitError("");
-              }}
-              type="text"
-            />
-          </div>
-        </label>
-        <label className="input-label">
           <div className="input-wrapper">
             <input
               placeholder="Введите ссылку на личный кабинет"
@@ -162,18 +169,7 @@ function App() {
             />
           </div>
         </label>
-        <Select
-          onChange={setInstitution}
-          className="req-star _req"
-          styles={{
-            control: (baseStyles, state) => {
-              return {
-                ...baseStyles,
-              };
-            },
-          }}
-          placeholder={"Выбрать учреждение..."}
-          options={schoolOptions}></Select>
+
         {submitError ? <div className="form__error">{submitError}</div> : false}
         <button className="submit-btn" type="submit">
           Отправить форму
